@@ -1,7 +1,8 @@
 # Tech Test for Seenit Backend Role
 
 Create the following  
-1. Users service which holds user data, containing at least the following  
+1. Users service which holds user data, containing at least the following
+```
     {
     firstName,
     surname,
@@ -10,7 +11,9 @@ Create the following
     createdAt,
     updatedAt
     }
-3. Projects service which holds project data, containing at least the following  
+```
+3. Projects service which holds project data, containing at least the following
+```   
     {
        name,
        description,
@@ -18,7 +21,7 @@ Create the following
        createdAt,
        updatedAt
    }
-
+```
 ## Acceptance Criteria
 1. Users service
     1. RESTFul CRUD
