@@ -2,8 +2,17 @@
 
 Create the following  
 1. Users service which holds user data, containing at least the following  
-`{firstName, surname, email,avatarUrl,createdAt,updatedAt}`  
-2. Projects service which holds project data, containing at least the following  
+```
+    {
+    firstName,
+    surname,
+    email,
+    avatarUrl,
+    createdAt,
+    updatedAt
+    }
+```
+3. Projects service which holds project data, containing at least the following  
 `{name, description, createdBy, createdAt, updatedAt }`
 
 ## Acceptance Criteria
