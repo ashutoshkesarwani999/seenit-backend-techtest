@@ -34,7 +34,7 @@ Create the following
 
 Notes for the solution:
 - The graphql instance can be called from any domain
-- Its ok to mock the data rather than using a data store
+- It is ok to mock the data rather than using a data store
 - Consider how to generate docs for the services
 - How would you ensure only allowed users can see the endpoints
 - Consider using best practice for creating services
