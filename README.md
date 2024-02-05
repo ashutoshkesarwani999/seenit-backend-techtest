@@ -1,9 +1,9 @@
 # Tech Test for Seenit Backend Role
 
-Create the following
-1. Users service which holds user data, containing at least the following
-`{firstName, surname, email,avatarUrl,createdAt,updatedAt}`
-2. Projects service which holds project data, containing at least the following
+Create the following  
+1. Users service which holds user data, containing at least the following  
+`{firstName, surname, email,avatarUrl,createdAt,updatedAt}`  
+2. Projects service which holds project data, containing at least the following  
 `{name, description, createdBy, createdAt, updatedAt }`
 
 ## Acceptance Criteria
@@ -22,3 +22,6 @@ Notes for the solution:
 - Consider how to generate docs for the services
 - How would you ensure only allowed users can see the endpoints
 - Consider using best practice for creating services
+
+## Submitting test
+Fork the repo into your own GitHub account and share the link with ian@seenit.io
