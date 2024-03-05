@@ -1,0 +1,23 @@
+[
+    {
+        "name": "TestBook1",
+        "description": "For Testing 1",
+        "createdBy": "Ashu",
+        "createdAt": "Wed Feb 21 2024 20:23:08 GMT+0000 (Greenwich Mean Time)",
+        "updatedAt": "Wed Feb 21 2024 20:23:08 GMT+0000 (Greenwich Mean Time)"
+    },
+    {
+        "name": "TestBook2",
+        "description": "For Testing 2",
+        "createdBy": "Sonal",
+        "createdAt": "Wed Feb 21 2024 20:23:08 GMT+0000 (Greenwich Mean Time)",
+        "updatedAt": "Wed Feb 21 2024 20:23:08 GMT+0000 (Greenwich Mean Time)"
+    },
+    {
+        "name": "TestBook3",
+        "description": "For Testing 3",
+        "createdBy": "test@gmail.com",
+        "createdAt": "Wed Feb 21 2024 20:23:08 GMT+0000 (Greenwich Mean Time)",
+        "updatedAt": "Wed Feb 21 2024 20:23:08 GMT+0000 (Greenwich Mean Time)"
+    }
+]

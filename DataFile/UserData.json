@@ -1,0 +1,27 @@
+[
+   
+    {
+        "firstName": "test",
+        "surname": "data",
+        "email": "test@gmail.com",
+        "id": "b4d6de1d-6868-42af-882e-1297d991ffb2",
+        "createdAt": "2024-03-03T00:41:34.350Z",
+        "avatarUrl": "https://www.gravatar.com/avatar/1aedb8d9dc4751e229a335e371db8058?d=identicon"
+    },
+    {
+        "firstName": "testING",
+        "surname": "data",
+        "email": "test123@gm.com",
+        "id": "e58732cc-9866-4cb8-86dd-3ac199528041",
+        "createdAt": "2024-03-03T22:09:54.993Z",
+        "avatarUrl": "https://www.gravatar.com/avatar/37fd738f46a96350d876e30d4570695f?d=identicon"
+    },
+    {
+        "firstName": "testINsG",
+        "surname": "datas",
+        "email": "testing@gmail.com",
+        "id": "e9c5204f-559f-47bd-98b9-ec383e370ed1",
+        "createdAt": "2024-03-05T01:35:02.415Z",
+        "avatarUrl": "https://www.gravatar.com/avatar/9ad574806427070b94735f216e9abdc1?d=identicon"
+    }
+]
