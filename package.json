@@ -5,8 +5,8 @@
   "import": "index.js",
   "scripts": {
     "start": "node build/index.js",
-    "dev": "tsc-watch --onSuccess \"npm start\"",
-    "run": "nodemon",
+    "dev": "tsc --watch --onSuccess \"npm start\"",
+    "run": "nodemon --ignore 'DataFile/*.json'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

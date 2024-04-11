@@ -22,9 +22,9 @@ const configurePassportMiddlewares = () => {
       async (email: string, password: string, done:any) => {
         try {
           // const user = await User.findOne({ username }).exec();
-          const existingIUser = IUserAttributes.get({username:email})
-
-          if (typeof existingIUser == "string") {
+          const existingIUser = IUserAttributes.get(DataJSON,{username:email})
+          console.log("existingIUser is ",existingIUser)
+          if (typeof existingIUser == "string" || existingIUser.length ==0) {
             return done("User does not exists.", null);
           }
 

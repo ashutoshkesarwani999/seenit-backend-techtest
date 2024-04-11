@@ -25,7 +25,7 @@ const GetUser = (req: Request, res: Response, next: NextFunction) => {
             return;
         }
         const UserAttributes = new Attributes<User>(UserDataJSON);
-        const UserData = UserAttributes.get(req.body)
+        const UserData = UserAttributes.get(UserDataJSON,req.body)
         if (typeof UserData == "string") {
             return404ErrorMessage(res, UserData);
 
@@ -49,7 +49,7 @@ const GetProject = (req: Request, res: Response, next: NextFunction) => {
         }
         const ProjectAttributes = new Attributes<Project>(ProjectDataJSON);
 
-        const ProjectData = ProjectAttributes.get(req.body);
+        const ProjectData = ProjectAttributes.get(ProjectDataJSON,req.body);
         if (typeof ProjectData == "string") {
             return404ErrorMessage(res, ProjectData);
 
@@ -105,7 +105,7 @@ const PostUser = (req: Request, res: Response, next: NextFunction) => {
             req.body.createdAt = new Date()
             req.body.avatarUrl = generateAvatarUrl(req.body.email)
             const UserAttributes = new Attributes<User>(UserDataJSON);
-            const UserData = UserAttributes.post('UserData', req.body, { "email": req.body.email });
+            const UserData = UserAttributes.post(UserDataJSON,'UserData', req.body, { "email": req.body.email });
             if (typeof UserData == "string") {
                 return404ErrorMessage(res, UserData);
                 return
@@ -133,7 +133,7 @@ const PostProject = (req: Request, res: Response, next: NextFunction) => {
             const ProjectAttributes = new Attributes<Project>(ProjectDataJSON);
             req.body.id = randomUUID()
             req.body.createdAt = new Date()
-            const ProjectData = ProjectAttributes.post('ProjectData', req.body, { "name": req.body.name })
+            const ProjectData = ProjectAttributes.post(ProjectDataJSON,'ProjectData', req.body, { "name": req.body.name })
             if (typeof ProjectData == "string") {
                 return404ErrorMessage(res, ProjectData);
                 return

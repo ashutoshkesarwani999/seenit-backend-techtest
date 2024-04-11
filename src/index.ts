@@ -31,15 +31,15 @@ async function expressApp() {
 
             return callback(null, true);
         }
-    }))
-    app.use(helmet())
-    app.use(limiter)
+    }));
+    app.use(helmet());
+    app.use(limiter);
     app.use(express.json({ limit: '10kb' }));
     configurePassportMiddlewares();
 
 
     app.use("/api/auth", getAuthRouter());
-    app.use('/api/v1/doc', swaggerUi.serve, swaggerUi.setup(swaggerJsDoc))
+    app.use('/api/v1/doc', swaggerUi.serve, swaggerUi.setup(swaggerJsDoc));
     // app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerJsDocs))
 
     app.use('/api/v1', router);

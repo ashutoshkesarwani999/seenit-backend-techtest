@@ -5,7 +5,6 @@ import DataJSON from '../../DataFile/Data.json'
 import { Attributes } from "../controller/resolverFunctions";
 import { randomUUID } from "crypto";
 // import User, { IUser } from "../models/user";
-const IUserAttributes = new Attributes<IUser>(DataJSON);
 
 /**
  * Registers a new user.
@@ -18,12 +17,14 @@ const createUser = async (
   password: string
 ): Promise<IUser | string> => {
   try {
+    let IUserAttributes = new Attributes<IUser>(DataJSON);
+    console.log("instance value is ",IUserAttributes)
+
     //verify the new username is unique
-    const existingIUser = IUserAttributes.get({ username: username, email: email })
-    console.log(existingIUser)
+    const existingIUser = IUserAttributes.get(DataJSON,{ username: username, email: email })
     // 
-    if (existingIUser) {
-      throw "The information provided belongs to an existing user."
+    if (existingIUser.length > 0) {
+      // throw "The information provided belongs to an existing user."
       return "The information provided belongs to an existing user.";
     }
     const IUserData = {
@@ -32,7 +33,9 @@ const createUser = async (
       password: await bcrypt.hash(password, envValues.SaltLength),
       email: email
     }
-    const IUserDataPostResponse = IUserAttributes.post('Data', IUserData, { "email": email }) as string;
+    console.log("instance value is ",IUserAttributes)
+
+    const IUserDataPostResponse = IUserAttributes.post(DataJSON,'Data', IUserData, { "email": email }) as string;
 
     // const user = new User({
     //   username,

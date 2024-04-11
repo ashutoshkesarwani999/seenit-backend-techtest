@@ -15,10 +15,9 @@ const return404ErrorMessage = (res: Response, errorMessage: unknown) => {
     }
   
     res.status(HttpStatusCodes.BAD_REQUEST).json({ message: errorMessage });
-  };
-  
+}
 
-  export {return404ErrorMessage}
+export {return404ErrorMessage}
 
 
 //   const return500ErrorMessage = (res: Response, errorMessage: unknown) => {

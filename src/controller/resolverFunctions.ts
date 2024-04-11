@@ -8,8 +8,9 @@ export type DataType = Record<string, number>
 export class Attributes<T>{
     private JSONData: T[];
     constructor(JSONData: T[]) {
-
+    
         this.JSONData = JSONData
+        console.log("Constructor is ",this.JSONData)
     }
     public getAll(): T[] | string {
       try{
@@ -20,10 +21,10 @@ export class Attributes<T>{
     }
 }
 
-    get(args: Partial<T>): T[] | string {
+    get(JSONData:T[],args: Partial<T>): T[] | string {
         try {
-            if (this.JSONData.length > 0) {
-                return this.findData(args)
+            if (JSONData.length > 0) {
+                return this.findData(JSONData,args)
             }
             return []
         } catch (error) {
@@ -31,13 +32,15 @@ export class Attributes<T>{
 
         }
     }
-    post(JSONObject: string, args: T, UniqueObject: Partial<T>): boolean|string  {
+    public post(JSONData:T[],JSONObject: string, args: T, UniqueObject: Partial<T>): boolean|string  {
         try {
-            if (this.JSONData) {
-                const uniquenessResult = this.checkUniqueness(UniqueObject)
+            if (JSONData) {
+                const uniquenessResult = this.checkUniqueness(JSONData,UniqueObject)
                 if (uniquenessResult === false) {
-                    this.JSONData.push(args)
-                    return this.writeDataToJSON(JSONObject, this.JSONData)
+                    console.log("before push",JSONData)
+                    JSONData.push(args)
+                    console.log("after push is ",JSONData)
+                    return this.writeDataToJSON(JSONObject, JSONData)
                 }
                 else if (uniquenessResult === true) {
                     throw 'Duplicate Email found'
@@ -76,9 +79,9 @@ export class Attributes<T>{
         }
     }
 
-    private findData<K extends keyof T>(obj: Partial<T>): T[]|string {
+    private findData<K extends keyof T>(JSONData:T[],obj: Partial<T>): T[]|string {
         try {
-            if (Object.keys(this.JSONData).length > 0) {
+            if (Object.keys(JSONData).length > 0) {
                 let tempUser: T[] | [] = [];
                 const keys = Object.keys(obj);
 
@@ -86,12 +89,12 @@ export class Attributes<T>{
                 while (i >= 0) {
                     let key = keys[i] as K;
                     if (tempUser.length == 0) {
-                        this.JSONData = this.JSONData.filter((user) => user[key] == obj[key])
+                        JSONData = JSONData.filter((user) => user[key] == obj[key])
                         // console.log(result)
-                        if (this.JSONData == undefined) {
+                        if (JSONData == undefined) {
                             return []
                         }
-                        tempUser = this.JSONData
+                        tempUser = JSONData
 
                     }
                     else if (tempUser.length > 0) {
@@ -111,10 +114,10 @@ export class Attributes<T>{
 
         }
     }
-    private checkUniqueness(UniqueObject: Partial<T>): boolean | string {
+    private checkUniqueness(JSONData:T[],UniqueObject: Partial<T>): boolean | string {
         try {
             if (UniqueObject) {
-                if (this.JSONData.find((obj: T) => obj[Object.keys(UniqueObject)[0] as keyof T] == Object.values(UniqueObject)[0])) {
+                if (JSONData.find((obj: T) => obj[Object.keys(UniqueObject)[0] as keyof T] == Object.values(UniqueObject)[0])) {
                     return true
                 }
                 else {
